@@ -37,6 +37,9 @@ VALIDATE $? "deownloading wget command"
 sudo dnf install net-tools -y
 VALIDATE $? "deownloading netstat command"
 
+rm -rf node_exporter*
+VALIDATE $? "removed existing prometheus"
+
 wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz &>>$LOGFILE
 VALIDATE $? "Downloading Node exporter"
 
